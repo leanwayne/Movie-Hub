@@ -14,7 +14,7 @@ function App() {
         <BrowserRouter>
             <CssBaseline/>
             <Header/>
-            <div className="app">asdads
+            <div className="app">
                 <Container>
                     <Switch>
                         <Route path='/' component={Trending} exact />

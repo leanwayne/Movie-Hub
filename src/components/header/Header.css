@@ -5,9 +5,9 @@
     display: flex;
     justify-content: center;
     text-transform: uppercase;
-    background-color: aqua;
+    background-color: rgb(19, 30, 65);
     font-family: 'Montserrat', sans-serif;
-    font-size: 5vw;
+    font-size: 4vw;
     padding-bottom: 15px;
     box-shadow: 0px 1px 5px black;
     color: white;

@@ -3,7 +3,7 @@ import React from 'react'
 const Movies = () => {
     return (
         <div>
-            <spam>asdasddsa</spam>
+            <span className="pageTitle">Movies</span>
         </div>
     )
 }

@@ -4,7 +4,7 @@ import './Header.css'
 const Header = () => {
     return (
         <div>
-            <spam className= 'header'>Movies App</spam>
+            <spam onClick={()=> window.scroll(0, 0)} className='header'>Movies App</spam>
         </div>
     )
 }

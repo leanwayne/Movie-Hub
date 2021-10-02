@@ -3,9 +3,7 @@ import './Header.css'
 
 const Header = () => {
     return (
-        <div>
-            <spam onClick={()=> window.scroll(0, 0)} className='header'>Movies App</spam>
-        </div>
+        <spam onClick={()=> window.scroll(0, 0)} className='header'>Movie Hub</spam>
     )
 }
 export default Header

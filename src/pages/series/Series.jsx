@@ -3,14 +3,19 @@ import axios from 'axios'
 import SingleContent from '../../components/singleContent/SingleContent'
 import '../trending/Trending.css'
 import CustomPagination from '../../components/pagination/CustomPagination'
+import Genres from '../../components/Genres/Genres'
+import UseGenre from '../../hooks/UseGenre'
 
 const Series = () => {
     const [content, setContent] = useState([]);
     const [page, setPage] = useState(1)
     const [numOfPages, setNumOfPages] = useState(1)
+    const [selectedGenres, setSelectedGenres] = useState([])
+    const [genres, setGenres] = useState([])
+    const genreForURL = UseGenre(selectedGenres)
 
     const getTvSeriesData = async () => {
-        const {data} = await axios.get(`https://api.themoviedb.org/3/discover/tv?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}`)
+        const {data} = await axios.get(`https://api.themoviedb.org/3/discover/tv?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genreForURL}`)
         setContent(data.results);
         setNumOfPages(data.total_pages)
     }
@@ -18,11 +23,19 @@ const Series = () => {
     useEffect(() => {
         window.scroll(0, 0);
         getTvSeriesData()
-    }, [page])
+    }, [page, genreForURL])
 
     return (
         <div>
             <span className="pageTitle">Discover Series</span>
+            <Genres 
+                type='tv' 
+                selectedGenres={selectedGenres} 
+                setSelectedGenres={setSelectedGenres} 
+                genres={genres} 
+                setGenres={setGenres}
+                setPage={setPage} 
+            />
             <div className='trending'>
                 {content && content.map(c => 
                     <SingleContent 

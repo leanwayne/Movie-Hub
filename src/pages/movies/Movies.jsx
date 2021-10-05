@@ -1,34 +1,34 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
-import SingleContent from '../../components/singleContent/SingleContent'
-import '../trending/Trending.css'
-import CustomPagination from '../../components/pagination/CustomPagination'
-import Genres from '../../components/Genres/Genres'
-import UseGenre from '../../hooks/UseGenre'
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import SingleContent from '../../components/singleContent/SingleContent';
+import '../trending/Trending.css';
+import CustomPagination from '../../components/pagination/CustomPagination';
+import Genres from '../../components/Genres/Genres';
+import UseGenre from '../../hooks/UseGenre';
 
 const Movies = () => {
     const [content, setContent] = useState([]);
-    const [page, setPage] = useState(1)
-    const [numOfPages, setNumOfPages] = useState(1)
-    const [selectedGenres, setSelectedGenres] = useState([])
-    const [genres, setGenres] = useState([])
-    const genreForURL = UseGenre(selectedGenres)
+    const [page, setPage] = useState(1);
+    const [numOfPages, setNumOfPages] = useState(1);
+    const [selectedGenres, setSelectedGenres] = useState([]);
+    const [genres, setGenres] = useState([]);
+    const genreForURL = UseGenre(selectedGenres);
 
 
     const getMoviesData = async () => {
-        const {data} = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genreForURL}`)
+        const {data} = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genreForURL}`);
         setContent(data.results);
-        setNumOfPages(data.total_pages)
+        setNumOfPages(data.total_pages);
     }
 
     useEffect(() => {
         window.scroll(0, 0);
-        getMoviesData()
-    }, [page, genreForURL])
+        getMoviesData();
+    }, [page, genreForURL]);
 
     return (
         <div>
-            <span className="pageTitle">Discover Movies</span>
+            <span className='pageTitle'>Discover Movies</span>
             <Genres 
                 type='movie' 
                 selectedGenres={selectedGenres} 
@@ -54,4 +54,4 @@ const Movies = () => {
         </div>
     )
 }
-export default Movies
+export default Movies;

@@ -4,7 +4,7 @@ import { makeStyles, createTheme, ThemeProvider } from '@material-ui/core/styles
 
 const darkTheme = createTheme({
     palette: {
-      type: "dark",
+      type: 'dark',
     },
   });
 
@@ -21,12 +21,12 @@ const useStyles = makeStyles(() => ({
 }));
 
 const CustomPagination = ({setPage, numOfPages = 10}) => {
-    const classes = useStyles()
+    const classes = useStyles();
 
     const handlePageChange = (page) => {
         setPage(page);
-        window.scroll(0, 0)
-    }
+        window.scroll(0, 0);
+    };
 
     return (
         <div className={classes.div}>
@@ -36,5 +36,4 @@ const CustomPagination = ({setPage, numOfPages = 10}) => {
         </div>
     )
 }
-
-export default CustomPagination
+export default CustomPagination;

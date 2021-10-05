@@ -1,6 +1,6 @@
-import { Chip } from "@material-ui/core";
-import axios from "axios";
-import { useEffect } from "react";
+import { Chip } from '@material-ui/core';
+import axios from 'axios';
+import { useEffect } from 'react';
 
 const Genres = ({type, selectedGenres, setSelectedGenres, genres, setGenres, setPage}) => {
 
@@ -39,9 +39,9 @@ const Genres = ({type, selectedGenres, setSelectedGenres, genres, setGenres, set
                     style={{ margin: 2 }}
                     label={genre.name}
                     key={genre.id}
-                    color="primary"
+                    color='primary'
                     clickable
-                    size="small"
+                    size='small'
                     onDelete={() => handleRemove(genre)}
                 />
             ))}
@@ -51,12 +51,11 @@ const Genres = ({type, selectedGenres, setSelectedGenres, genres, setGenres, set
                     label={genre.name}
                     key={genre.id}
                     clickable
-                    size="small"
+                    size='small'
                     onClick={() => handleAdd(genre)}
                 />
             ))}
         </div>
     )
 }
-
-export default Genres
+export default Genres;

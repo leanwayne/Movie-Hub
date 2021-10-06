@@ -10,6 +10,7 @@ import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles({
     root: {
+        marginBottom:'25px',
         width: '100%',
         position:'fixed',
         bottom: 0,
@@ -18,7 +19,27 @@ const useStyles = makeStyles({
     },
     button: {
         color: 'white'
-    }
+    },
+    footer: {
+        width: '100%',
+        position:'fixed',
+        height: '40px',
+        bottom: 0,
+        backgroundColor: '#2d313a',
+        zIndex: 90,
+    },
+    footerContent: {
+        fontFamily: 'Montserrat',
+        color: 'white',
+        display:'flex',
+        alignItems: 'center',
+        flexDirection: 'row',
+        justifyContent: 'center',
+    },
+    icons: {
+        paddingLeft:'20px'
+
+    },
 });
 
 export default function MainNav() {
@@ -34,18 +55,31 @@ export default function MainNav() {
     }, [value]);
 
     return (
-        <BottomNavigation
-            value={value}
-            onChange={(event, newValue) => {
-                setValue(newValue);
-            }}
-            showLabels
-            className={classes.root}
-        >
-            <BottomNavigationAction className={classes.button} label='Trending' icon={<WhatshotIcon />} />
-            <BottomNavigationAction className={classes.button} label='Movies' icon={<MovieIcon />} />
-            <BottomNavigationAction className={classes.button} label='TV Series' icon={<TvIcon />} />
-            <BottomNavigationAction className={classes.button} label='Search' icon={<SearchIcon />} />
-        </BottomNavigation>
+        <>
+            <BottomNavigation
+                value={value}
+                onChange={(event, newValue) => {
+                    setValue(newValue);
+                }}
+                showLabels
+                className={classes.root}
+            >
+                <BottomNavigationAction className={classes.button} label='Trending' icon={<WhatshotIcon />} />
+                <BottomNavigationAction className={classes.button} label='Movies' icon={<MovieIcon />} />
+                <BottomNavigationAction className={classes.button} label='TV Series' icon={<TvIcon />} />
+                <BottomNavigationAction className={classes.button} label='Search' icon={<SearchIcon />} />
+            </BottomNavigation>
+            <div className={classes.footer}>
+                <div className={classes.footerContent}>
+                    <p>Portfolio project made by Leandro Lopez</p>
+                    <a className={classes.icons} href='https://www.linkedin.com/in/leandro-l%C3%B3pez-catalini-9628b21a2/' target='_blank' rel='noreferrer'>
+                        <i className='fab fa-linkedin linkedin'></i>
+                    </a>
+                    <a className={classes.icons} href='https://github.com/leanwayne' target='_blank' rel='noreferrer'>
+                        <i className='fab fa-github github'></i>
+                    </a>
+                </div>
+            </div>
+        </>
     );
 };

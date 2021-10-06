@@ -12,7 +12,7 @@ const Search = () => {
     const [page, setPage] = useState(1);
     const [content, setContent] = useState([]);
     const [numOfPages, setNumOfPages] = useState(); 
-  
+    console.log("desde seartch", content)
     const darkTheme = createTheme({
         palette: {
             type: 'dark',
@@ -81,7 +81,7 @@ const Search = () => {
                             poster={c.poster_path}
                             title={c.title || c.name}
                             date={c.first_air_date || c.release_date}
-                            media_type={type ? 'tv' : 'movie'}
+                            media={type ? 'tv' : 'movie'}
                             vote_average={c.vote_average}
                         />
                     ))

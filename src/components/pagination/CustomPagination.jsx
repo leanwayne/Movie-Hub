@@ -13,7 +13,8 @@ const useStyles = makeStyles(() => ({
         width: '100%',
         display: 'flex',
         justifyContent: 'center',
-        marginTop: 10,
+        marginTop: 5,
+        marginBottom: 15
     },
     palette:{
         type: 'dark'
